@@ -1,9 +1,8 @@
-PACKET_SIZE = 14
+PACKET_SIZE = 4
 
 def check_dup(s: str):
     for i in range(len(s)):
-        for j in range(i + 1, len(s)):
-            if sub[i] == sub[j]: return True
+        if sub[i] in sub[i+1:]: return True
     return False
 
 
