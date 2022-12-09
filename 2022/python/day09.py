@@ -34,7 +34,7 @@ class Coord:
         return 0, 0
 
     def __repr__(self) -> str:
-        return f"({self.x, self.y})"
+        return f"{self.x, self.y}"
 
 def moveX(grid, prev, curr, direction, value):
     grid[curr.x + curr.y * WIDTH].content.remove(value)
@@ -142,7 +142,5 @@ if __name__ == '__main__':
     grid = [Position(Coord(x % WIDTH, x // WIDTH)) for x in range(WIDTH * HEIGHT)]
     grid[start.x + start.y * WIDTH].content = [9, 8, 7, 6, 5, 4, 3, 2, 1, 'H']
     grid[start.x + start.y * WIDTH].tail_visited = True
-    # print_grid(grid)
     grid = execute(grid, instructions)
-    # print_grid(grid)
     print(len([x for x in grid if x.tail_visited is True]))
