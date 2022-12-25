@@ -138,9 +138,9 @@ if __name__ == '__main__':
     WIDTH = xmax - xmin + 1
     HEIGHT = ymax - ymin + 1
     start = Coord(abs(-xmin), abs(-ymin))
-    print(WIDTH, HEIGHT, start)
     grid = [Position(Coord(x % WIDTH, x // WIDTH)) for x in range(WIDTH * HEIGHT)]
     grid[start.x + start.y * WIDTH].content = [9, 8, 7, 6, 5, 4, 3, 2, 1, 'H']
     grid[start.x + start.y * WIDTH].tail_visited = True
     grid = execute(grid, instructions)
+    print_grid(grid)
     print(len([x for x in grid if x.tail_visited is True]))
